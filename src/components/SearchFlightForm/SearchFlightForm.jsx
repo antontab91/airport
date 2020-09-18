@@ -13,7 +13,6 @@ const SearchFlightForm = () => {
           className="search-field__input"
           placeholder="Airline, destination or flight #"
         />
-
         <button className="search-field__btn" type="submit">
           SEARCH
         </button>
