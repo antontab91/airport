@@ -1,9 +1,9 @@
 import React from 'react';
-import AirportBoard from './components/AirportBoard.jsx';
+import Main from './components/Main.jsx';
 
 const App = () => {
   return (
-    <AirportBoard />
+    <Main />
   )
 }
 export default App;

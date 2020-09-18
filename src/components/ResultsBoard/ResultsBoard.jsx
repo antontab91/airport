@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SearchResultsBoard = () => {
+const ResultsBoard = () => {
   return <div className="asas">два</div>
 }
 
-export default SearchResultsBoard;
+export default ResultsBoard;
