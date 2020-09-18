@@ -1,8 +1,9 @@
 import React from 'react';
+import AirportBoard from './components/AirportBoard';
 
 const App = () => {
   return (
-    <div className="hello_world">hello world</div>
+
   )
 }
 export default App;

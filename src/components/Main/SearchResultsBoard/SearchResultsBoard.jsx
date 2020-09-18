@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AirportBoard = () => {
+const SearchResultsBoard = () => {
   return <div className="asas">saas</div>
 }
 
-export default AirportBoard;
+export default SearchResultsBoard;

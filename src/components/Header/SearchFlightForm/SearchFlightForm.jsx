@@ -1,7 +1,8 @@
 import React from 'react';
 
-const SearchResults = () => {
+
+const SearchFlightForm = () => {
   return <div className="asas">saas</div>
 }
 
-export default SearchResults;
+export default SearchFlightForm;
