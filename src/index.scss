@@ -11,12 +11,15 @@ html,body {
   background: #e7efec;
 }
 
-input[type="text" i] {
-    padding: 0px;
-  }
-
 main{
   padding: 0 15px;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }  
 }
 
 .search-flight{
@@ -42,18 +45,25 @@ main{
   &__icon {
     display: block;
     position: absolute;
-    color:  red;
+    color: #b8b9b9;
     top: 0;
     bottom: 0;
-    margin:  auto;
+    left: 13px;
+    margin: auto;
   }
 
   &__input{
+    // color: #b8b9b9;
+    outline:none;
     width: 100%;
     display: block;
     border: none;
     font-size: 24px;
     flex-basis: 70%;
+    padding: 0 0 0 70px;
+    @include placeholder {
+    color: #b8b9b9;
+  }
   }
   
   &__btn{

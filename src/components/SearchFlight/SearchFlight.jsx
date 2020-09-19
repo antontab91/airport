@@ -9,8 +9,17 @@ const SearchFlight = () => {
         Search flight
       </h2>
       <form className="search-flight__form" action="">
-        <SearchOutlined style={{ fontSize: 44 }} className="search-flight__icon" />
+        <label
+          className="search-flight__label"
+          htmlFor="search-flight__input"
+        >
+          <SearchOutlined
+            style={{ fontSize: 44 }}
+            className="search-flight__icon"
+          />
+        </label>
         <input
+          id="search-flight__input"
           type="text"
           className="search-flight__input"
           placeholder="Airline, destination or flight #"
