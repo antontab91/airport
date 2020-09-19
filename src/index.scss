@@ -11,7 +11,14 @@ html,body {
   background: #e7efec;
 }
 
+main{
+  padding: 0 15px;
+}
+
 .search_flight{
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
 
   &__title{
     font-size: 70px;
