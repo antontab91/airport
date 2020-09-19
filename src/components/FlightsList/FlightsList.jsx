@@ -20,11 +20,11 @@ const FlightsList = () => {
     <div className="flights-list">
       <div className="flights-list__tabs">
         <div className="flights-list__btn flights-list__btn_arrivals">
-          <FlightTakeoff className={`${classes.root} hui`} />
+          <FlightTakeoff className={`${classes.root} flights-list__icon`} />
           <span>Departures</span>
         </div>
         <div className="flights-list__btn flights-list__btn_departures">
-          <FlightLand />
+          <FlightLand className="flights-list__icon" />
           <span>Arrivals</span>
         </div>
       </div>

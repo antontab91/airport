@@ -1,4 +1,5 @@
 import React from 'react';
+import { SearchOutlined } from '@material-ui/icons';
 
 
 const SearchFlight = () => {
@@ -8,6 +9,7 @@ const SearchFlight = () => {
         Search flight
       </h2>
       <form className="search-flight__form" action="">
+        <SearchOutlined />
         <input
           type="text"
           className="search-flight__input"
