@@ -11,11 +11,15 @@ html,body {
   background: #e7efec;
 }
 
+input[type="text" i] {
+    padding: 0px;
+  }
+
 main{
   padding: 0 15px;
 }
 
-.search_flight{
+.search-flight{
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
@@ -27,5 +31,43 @@ main{
     font-weight: 300;
     text-transform: uppercase;
   }
+
+  &__form{
+    height: 80px;
+    display: flex;
+    position: relative;
+  
+  }
+
+  &__icon {
+    display: block;
+    position: absolute;
+    color:  red;
+    top: 0;
+    bottom: 0;
+    margin:  auto;
+  }
+
+  &__input{
+    width: 100%;
+    display: block;
+    border: none;
+    font-size: 24px;
+    flex-basis: 70%;
+  }
+  
+  &__btn{
+    flex-basis: 30%;
+    border-radius: 0 90px 0 0;
+    border: none;
+    background: #1eb7ee;
+    color: #fff;
+    text-align: left;
+    padding: 0 20px;
+    font-size: 26px;
+    font-weight: 700;
+  }
 }
+
+
 

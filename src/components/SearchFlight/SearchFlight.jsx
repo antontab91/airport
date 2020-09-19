@@ -4,12 +4,12 @@ import { SearchOutlined } from '@material-ui/icons';
 
 const SearchFlight = () => {
   return (
-    <div className="search_flight">
-      <h2 className="search_flight__title">
+    <div className="search-flight">
+      <h2 className="search-flight__title">
         Search flight
       </h2>
       <form className="search-flight__form" action="">
-        <SearchOutlined className="search-flight__icon" />
+        <SearchOutlined style={{ fontSize: 44 }} className="search-flight__icon" />
         <input
           type="text"
           className="search-flight__input"
