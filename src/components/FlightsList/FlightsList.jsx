@@ -1,12 +1,26 @@
 import React from 'react';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
+});
 
 const FlightsList = () => {
+  const classes = useStyles();
   return (
     <div className="flights-list">
       <div className="flights-list__tabs">
         <div className="flights-list__btn flights-list__btn_arrivals">
-          <FlightTakeoff style={{ fontSize: 40, color: "#000" }} />
+          <FlightTakeoff className={`${classes.root} hui`} />
           <span>Departures</span>
         </div>
         <div className="flights-list__btn flights-list__btn_departures">
@@ -14,9 +28,9 @@ const FlightsList = () => {
           <span>Arrivals</span>
         </div>
       </div>
-      <div class="flights-list__table-wrapper">
-        <table class="flights-list__table flights-table">
-          <thead class="flights-list__header">
+      <div className="flights-list__table-wrapper">
+        <table className="flights-list__table flights-table">
+          <thead className="flights-list__header">
             <tr>
               <th>Terminal</th>
               <th>Local time</th>
