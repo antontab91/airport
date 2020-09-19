@@ -14,6 +14,30 @@ const FlightsList = () => {
           <span>Arrivals</span>
         </div>
       </div>
+      <div class="flights-list__table-wrapper">
+        <table class="flights-list__table flights-table">
+          <thead class="flights-list__header">
+            <tr>
+              <th>Terminal</th>
+              <th>Local time</th>
+              <th>Destination</th>
+              <th>Status</th>
+              <th>Airline</th>
+              <th>Flight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
