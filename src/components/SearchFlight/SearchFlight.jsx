@@ -9,7 +9,7 @@ const SearchFlight = () => {
         Search flight
       </h2>
       <form className="search-flight__form" action="">
-        <SearchOutlined />
+        <SearchOutlined className="search-flight__icon" />
         <input
           type="text"
           className="search-flight__input"
