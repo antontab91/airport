@@ -23,7 +23,7 @@ const FlightsList = () => {
       </div>
       <div className="flights-list__table-wrapper">
         <table className="flights-list__table flights-table">
-          <thead className="flights-list__header">
+          <thead className="flights-table__header">
             <tr>
               <th>Terminal</th>
               <th>Local time</th>

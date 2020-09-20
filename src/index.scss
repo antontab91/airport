@@ -12,6 +12,7 @@ $teal:#73d2f0;
 $gray:#595959;
 $black:#2f2f2f;
 $white:#fff;
+$levy:#e7efec;
 
 *{
   box-sizing: border-box;
@@ -25,7 +26,7 @@ $white:#fff;
 body {
   font-family: 'Open Sans', sans-serif;
   line-height:  1;
-  background: #e7efec;
+  background: $levy;
   color: $gray;
   padding: 40px 0 20px;
 }
@@ -158,7 +159,37 @@ main{
    &__icon.MuiSvgIcon-root{
      font-size: 44px;
    }
+
+   &__table-wrapper{
+    padding-top: 50px;
+    background: $white;
+   }
+   
 }
 
+.flights-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 
+  &__header tr th {
+    padding-bottom: 10px;
+  }
+
+  &__header tr th:first-child {
+    text-align: center;
+  }
+}
+
+td {
+  padding: 20px 0;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: $levy;
+}
+
+tbody tr td:first-child {
+  text-align: center;
+}
 
