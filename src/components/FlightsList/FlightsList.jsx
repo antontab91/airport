@@ -5,11 +5,11 @@ const FlightsList = () => {
   return (
     <div className="flights-list">
       <div className="flights-list__tabs">
-        <div className="flights-list__btn flights-list__btn_arrivals">
+        <div className="flights-list__tab-btn flights-list__tab-btn_arrivals">
           <FlightTakeoff className="flights-list__icon" />
           <span>Departures</span>
         </div>
-        <div className="flights-list__btn flights-list__btn_departures">
+        <div className="flights-list__tab-btn flights-list__tab-btn_departures active">
           <FlightLand className="flights-list__icon" />
           <span>Arrivals</span>
         </div>
