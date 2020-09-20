@@ -9,25 +9,23 @@ const SearchFlight = () => {
         Search flight
       </h2>
       <form className="search-flight__form" action="">
-        <div className="search-flight__form-control">
-          <label
-            className="search-flight__label"
-            htmlFor="search-flight__input"
-          >
-            <SearchOutlined
-              className="search-flight__icon"
-            />
-          </label>
-          <input
-            id="search-flight__input"
-            type="text"
-            className="search-flight__input"
-            placeholder="Airline, destination or flight #"
+        <label
+          className="search-flight__label"
+          htmlFor="search-flight__input"
+        >
+          <SearchOutlined
+            className="search-flight__icon"
           />
-          <button className="search-flight__btn" type="submit">
-            SEARCH
-          </button>
-        </div>
+        </label>
+        <input
+          id="search-flight__input"
+          type="text"
+          className="search-flight__input"
+          placeholder="Airline, destination or flight #"
+        />
+        <button className="search-flight__btn" type="submit">
+          SEARCH
+        </button>
       </form>
     </div>
   )
