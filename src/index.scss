@@ -97,5 +97,15 @@ main{
   }
 }
 
+.flights-list{
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__tabs{
+    display: flex;
+  }
+}
+
 
 
