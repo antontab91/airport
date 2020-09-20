@@ -17,6 +17,8 @@ $white:#fff;
   outline:none;
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  outline: none;
 }
 
 body {
@@ -114,24 +116,35 @@ main{
   }
 
   &__tab-btn{
-    flex-basis: 100%;
+    flex: 1 1 auto;
     cursor: pointer;
-    border: 1px solid black;
-    
+    position: relative;
+    background: $blue;
+    color: $white;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all ease-in-out 0.3s;
   }
   
   &__tab-btn_arrivals{
-    border-radius: 0 60px 0 0;
+    margin-left: -60px;
+    border-radius: 60px 60px 0 0;
   }
   
   &__tab-btn_departures{
+    margin-right: -60px;
     text-align: right;
-    border-radius: 60px 0 0 0;
+    border-radius: 60px 60px 0 0;
 
   }
 
    &__tab-btn.active{
-
+    background: $white;
+    color: $blue;
+    z-index: 1;
    }
 }
 

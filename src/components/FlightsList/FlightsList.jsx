@@ -1,15 +1,22 @@
 import React from 'react';
+import { useState } from 'react'
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
 
 const FlightsList = () => {
+  const [state, setstate] = useState(true);
+
+  const toggle = () => {
+    setstate(!state)
+  }
+
   return (
     <div className="flights-list">
       <div className="flights-list__tabs">
-        <div className="flights-list__tab-btn flights-list__tab-btn_departures active">
+        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_departures ${!state ? "active" : ""} `}>
           <FlightTakeoff className="flights-list__icon" />
           <span>Departures</span>
         </div>
-        <div className="flights-list__tab-btn flights-list__tab-btn_arrivals">
+        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state ? "active" : ""} `}>
           <FlightLand className="flights-list__icon" />
           <span>Arrivals</span>
         </div>
