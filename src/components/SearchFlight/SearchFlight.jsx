@@ -15,7 +15,6 @@ const SearchFlight = () => {
             htmlFor="search-flight__input"
           >
             <SearchOutlined
-              style={{ fontSize: 44 }}
               className="search-flight__icon"
             />
           </label>
