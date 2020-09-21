@@ -7,10 +7,8 @@ const fetchFlightsList = () => {
         return response.json()
       }
       return new Error('failed to load flights list')
-    }).then((f) => {
-      return f.arrival
     })
 }
+// fetchFlightsList().then((suka) => { console.log(suka.body.arrival) })
 
-console.log(fetchFlightsList());
 
