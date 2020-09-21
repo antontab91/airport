@@ -5,9 +5,9 @@ const dayDate = moment().format('MM-DD-YYYY');
 // const headers = {
 //   "Content-type": "application/json;charset=utf-8",
 // };
-console.log(dayDate)
 
-const fetchFlightsList = () => {
+
+export const fetchFlightsList = () => {
   return fetch(`${baseUrl}/${dayDate}`)
     .then((response) => {
       if (response.ok) {
