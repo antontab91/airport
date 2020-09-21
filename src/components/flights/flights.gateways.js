@@ -1,10 +1,11 @@
 import moment from 'moment';
 
-const baseUrl = 'https://api.iev.aero/api/flights/21-09-2020';
-const dayDate = moment().format('MM-DD-YYYY');
+const baseUrl = 'https://api.iev.aero/api/flights';
+const dayDate = moment().format('DD-MM-YYYY');
 // const headers = {
 //   "Content-type": "application/json;charset=utf-8",
 // };
+// console.log(dayDate)
 
 
 export const fetchFlightsList = () => {

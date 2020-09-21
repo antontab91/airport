@@ -13,6 +13,7 @@ export const getFlightsLists = () => {
   return function (dispatch) {
     return fetchFlightsList()
       .then((flightsLists) => {
+        // console.log(flightsLists)
         dispatch(tasksListsReceived(flightsLists));
       })
   }

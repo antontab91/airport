@@ -1,10 +1,15 @@
+import { Provider } from 'react-redux';
 import React from 'react';
 import Main from './components/Main.jsx';
-import './components/flights/flights.gateways'
+import { store } from './store';
+
 
 const App = () => {
   return (
-    <Main />
+    <Provider store={store}>
+      <Main />
+    </Provider>
+
   )
 }
 export default App;
