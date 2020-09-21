@@ -17,6 +17,7 @@ export const fetchFlightsList = () => {
       return new Error('failed to load flights list')
     })
 }
-// fetchFlightsList().then((suka) => { console.log(suka.body.arrival) })
+// fetchFlightsList().then((suka) => { console.log(suka) })
+// console.log('ds')
 
 

@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import SearchFlight from './SearchFlight/SearchFlight.jsx';
 import ResultsBoard from './FlightsList/FlightsList.jsx';
 import { getFlightsLists } from './flights/flights.actions';
 
-
-
-const AirportBoard = ({ state, getFlightsLists }) => {
+const AirportBoard = ({ getFlightsLists }) => {
 
   useEffect(() => {
     getFlightsLists()
-  }, []);
+  }, [getFlightsLists]);
 
   return (
     <main className="main">
@@ -20,17 +18,11 @@ const AirportBoard = ({ state, getFlightsLists }) => {
   )
 }
 
-const mapState = (state) => {
-  return {
-    state,
-  }
-}
-
 const mapDispatch = {
-  getFlightsLists: getFlightsLists,
+  getFlightsLists,
 }
 
-const connector = connect(mapState, mapDispatch)
+const connector = connect(null, mapDispatch)
 const connectedAirportBoard = connector(AirportBoard);
 
 export default connectedAirportBoard;
