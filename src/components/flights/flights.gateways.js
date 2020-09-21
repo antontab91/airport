@@ -1,4 +1,7 @@
 const baseUrl = 'https://api.iev.aero/api/flights/21-09-2020';
+// const headers = {
+//   "Content-type": "application/json;charset=utf-8",
+// };
 
 const fetchFlightsList = () => {
   return fetch(`${baseUrl}`)
