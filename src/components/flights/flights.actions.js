@@ -9,9 +9,9 @@ const tasksListsReceived = (flightsLists) => {
   }
 }
 
-export const getFlightsLists = () => {
+export const getFlightsLists = (date) => {
   return function (dispatch) {
-    return fetchFlightsList()
+    return fetchFlightsList(date)
       .then((flightsLists) => {
         // console.log(flightsLists)
         dispatch(tasksListsReceived(flightsLists));
