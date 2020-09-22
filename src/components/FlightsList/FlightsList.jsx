@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
+import { Link, Route, Switch } from 'react-router-dom';
 
 const FlightsList = () => {
   const [state, setstate] = useState(true);
@@ -11,6 +12,7 @@ const FlightsList = () => {
 
   return (
     <div className="flights-list">
+
       <div className="flights-list__tabs">
         <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_departures ${!state ? "active" : ""} `}>
           <FlightTakeoff className="flights-list__icon" />
@@ -21,6 +23,7 @@ const FlightsList = () => {
           <span>Arrivals</span>
         </div>
       </div>
+
       <div className="flights-list__table-wrapper">
         <table className="flights-list__table flights-table">
           <thead className="flights-table__header">
