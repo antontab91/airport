@@ -1,24 +1,26 @@
 import React from 'react';
 import { useState } from 'react'
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, useLocation } from 'react-router-dom';
 
 const FlightsList = () => {
-  const [state, setstate] = useState(true);
+  const [state, setstate] = useState('departures');
 
   const toggle = () => {
-    setstate(!state)
+    setstate(state === 'departures' ? 'arrivals' : 'departures');
   }
+  const location = useLocation();
+  console.log(location)
 
   return (
     <div className="flights-list">
 
       <div className="flights-list__tabs">
-        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_departures ${!state ? "active" : ""} `}>
+        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_departures ${state === 'departures' ? "active" : ""} `}>
           <FlightTakeoff className="flights-list__icon" />
           <span>Departures</span>
         </div>
-        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state ? "active" : ""} `}>
+        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state === 'arrivals' ? "active" : ""} `}>
           <FlightLand className="flights-list__icon" />
           <span>Arrivals</span>
         </div>
