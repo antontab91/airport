@@ -16,14 +16,15 @@ const FlightsList = () => {
     <div className="flights-list">
 
       <div className="flights-list__tabs">
-        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_departures ${state === 'departures' ? "active" : ""} `}>
+        <Link to='/departures' onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_departures ${state === 'departures' ? "active" : ""} `}>
           <FlightTakeoff className="flights-list__icon" />
           <span>Departures</span>
-        </div>
-        <div onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state === 'arrivals' ? "active" : ""} `}>
+        </Link>
+
+        <Link to='/arrivals' onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state === 'arrivals' ? "active" : ""} `}>
           <FlightLand className="flights-list__icon" />
           <span>Arrivals</span>
-        </div>
+        </Link>
       </div>
 
       <div className="flights-list__table-wrapper">
