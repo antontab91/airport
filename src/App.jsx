@@ -12,7 +12,7 @@ const App = () => {
         <Main />
       </BrowserRouter>
     </Provider>
-
   )
 }
+
 export default App;
