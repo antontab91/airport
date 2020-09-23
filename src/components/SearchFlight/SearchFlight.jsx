@@ -25,7 +25,7 @@ const SearchFlight = () => {
       <h2 className="search-flight__title">
         Search flight
       </h2>
-      <form className="search-flight__form" action="">
+      <form onSubmit={(e) => { onSearchFlight(e) }} className="search-flight__form">
         <label
           className="search-flight__label"
           htmlFor="search-flight__input"
@@ -50,11 +50,11 @@ const SearchFlight = () => {
   )
 }
 
-const mapDisptch = {
+const mapDispatch = {
   searchFlight,
 }
 
-const connector = connect(null, mapDisptch);
+const connector = connect(null, mapDispatch);
 const connectedSearchFlight = connector(SearchFlight);
 
 export default connectedSearchFlight;

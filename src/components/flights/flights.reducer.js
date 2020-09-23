@@ -8,20 +8,20 @@ const initialState = {
 
 export const flightsReducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case SEARCH_FLIGHTS: {
+      return {
+        ...state,
+        searchFlight: action.payload.searchData,
+      }
+    }
+
     case FLIGHTS_LISTS_RECEIVED: {
       const { departure, arrival } = action.payload.body;
       return {
         ...state,
         departures: departure,
         arrivals: arrival,
-      }
-    }
-
-    case SEARCH_FLIGHTS: {
-      const { searchData } = action.payload;
-      return {
-        ...state,
-        searchFlight: searchData,
       }
     }
 
