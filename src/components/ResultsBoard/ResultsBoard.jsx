@@ -17,7 +17,7 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
 
   const needed = state === 'departures' ? departuresList : arrivalsList;
 
-  // console.log(useLocation())
+  console.log(useLocation())
   // console.log(useHistory())
   // console.log(useParams())
 
