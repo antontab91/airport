@@ -9,7 +9,7 @@ import *as flightsSelectors from '../flights/flights.selectors';
 
 
 const ResultsBoard = ({ arrivalsList, departuresList }) => {
-  const [state, setstate] = useState('departures');
+  const [state, setstate] = useState('arrivals');
 
   const toggle = () => {
     setstate(state === 'departures' ? 'arrivals' : 'departures');

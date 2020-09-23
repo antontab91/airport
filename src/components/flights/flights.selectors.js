@@ -1,3 +1,4 @@
+import { Flight } from '@material-ui/icons';
 import moment from 'moment';
 
 const today = moment().format('DD-MM-YYYY');
@@ -14,12 +15,15 @@ export const arrivalsSelector = state => {
         return formatDate(el.timeLandCalc) === today;
       })
     : [];
-
   if (!searchFlight) {
-    return filteredArrivals;
+    return filteredArrivals
   }
-
-  return filteredArrivals;  // тут буду фильтровать 
+  return filteredArrivals.filter((flight) => {
+    return (
+      flight["airportFromID.name_en"].toLowerCase().includes(searchFlight.toLowerCase()) ||
+      flight.airline.en.name.toLowerCase().includes(searchFlight.toLowerCase())
+    )
+  });
 }
 
 export const departuresSelector = state => {
@@ -33,7 +37,13 @@ export const departuresSelector = state => {
     : [];
 
   if (!searchFlight) {
-    return filteredDepartures;
+    return filteredDepartures
   }
-  return filteredDepartures;  // тут буду фильтровать 
+
+  return filteredDepartures.filter((flight) => {
+    return (
+      flight["airportToID.name_en"].toLowerCase().includes(searchFlight.toLowerCase()) ||
+      flight.airline.en.name.toLowerCase().includes(searchFlight.toLowerCase())
+    )
+  });
 }
