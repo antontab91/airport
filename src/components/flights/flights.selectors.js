@@ -19,7 +19,7 @@ export const arrivalsSelector = state => {
     return filteredArrivals;
   }
 
-
+  return filteredArrivals;  // тут буду фильтровать 
 }
 
 export const departuresSelector = state => {
@@ -35,4 +35,5 @@ export const departuresSelector = state => {
   if (!searchFlight) {
     return filteredDepartures;
   }
+  return filteredDepartures;  // тут буду фильтровать 
 }
