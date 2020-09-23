@@ -1,4 +1,3 @@
-import { Flight } from '@material-ui/icons';
 import moment from 'moment';
 
 const today = moment().format('DD-MM-YYYY');
