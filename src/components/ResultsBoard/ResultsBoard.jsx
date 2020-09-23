@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link, Route, Switch, useLocation, useHistory, useParams } from 'react-router-dom';
 import moment from 'moment';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
+import FlightsTableHeader from '../FlightsTableHeader/FlightsTableHeader';
 import *as flightsSelectors from '../flights/flights.selectors';
+
 
 const ResultsBoard = ({ arrivalsList, departuresList }) => {
   const [state, setstate] = useState('departures');
@@ -20,7 +22,7 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
   // console.log(useHistory())
   // console.log(useParams())
 
-  // console.log(arrivalsList, departuresList)
+  arrivalsList.map((el) => { console.log(el.timeLandCalc) })
   return (
     <div className="flights-list">
 
@@ -44,25 +46,16 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
 
       <div className="flights-list__table-wrapper">
         <table className="flights-list__table flights-table">
-          <thead className="flights-table__header">
-            <tr>
-              <th>Terminal</th>
-              <th>Local time</th>
-              <th>Destination</th>
-              <th>Status</th>
-              <th>Airline</th>
-              <th>Flight</th>
-            </tr>
-          </thead>
+          <FlightsTableHeader />
 
           <tbody>
             {needed.slice().sort((a, b) => { return a.timeLandCalc - b.timeLandCalc }).map((flight) => {
               return (
                 <tr key={flight.ID}>
                   <td>{flight.term}</td>
-                  <td>{moment(flight.timeDepShedule).format("HH:mm") || moment(flight.timeLandCalc).format("HH:mm")}</td>
-                  <td>{flight.status}</td>
+                  <td>{state === 'departures' ? moment(flight.timeDepShedule).format("HH:mm") : moment(flight.timeLandCalc).format("HH:mm")}</td>
                   <td>{flight["airportToID.name_en"] || flight["airportFromID.name_en"]}</td>
+                  <td>{flight.status}</td>
                   <td className='flights-table__airline-logo'><img className='flights-table__airline-icon' src={flight.airline.en.logoSmallName} alt="airline-logo" />{flight.airline.en.name}</td>
                   <td>{flight["carrierID.IATA"] + flight.fltNo}</td>
                 </tr>
@@ -81,6 +74,13 @@ const mapState = (state) => {
     departuresList: flightsSelectors.departuresSelector(state),
   }
 }
+
+// const mapState = (state) => {
+//   return {
+//     arrivalsList: state.flights.arrivals,
+//     departuresList: state.flights.departures,
+//   }
+// }
 
 const connector = connect(mapState, null);
 const connectedResultsBoard = connector(ResultsBoard);

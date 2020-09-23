@@ -13,7 +13,6 @@ export const getFlightsLists = (date) => {
   return function (dispatch) {
     return fetchFlightsList(date)
       .then((flightsLists) => {
-        // console.log(flightsLists)
         dispatch(flightsListsReceived(flightsLists));
       })
   }
