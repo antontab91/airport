@@ -13,12 +13,11 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
 
   const needed = state === 'departures' ? departuresList : arrivalsList;
 
-  console.log(useLocation())
-  // console.log(useHistory())
-  // console.log(useParams())
-  // console.log(useRouteMatch())
 
-  console.log(arrivalsList, departuresList)
+  console.log(useLocation())
+
+
+  // console.log(arrivalsList, departuresList)
   return (
     <div className="flights-list">
 

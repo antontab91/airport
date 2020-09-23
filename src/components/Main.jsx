@@ -9,7 +9,7 @@ const AirportBoard = ({ getFlightsLists }) => {
 
   useEffect(() => {
     getFlightsLists()
-  }, [getFlightsLists]);        //тут я получил и записал в стор рпасписание всех вылетов/прилетов
+  }, [getFlightsLists]);        //тут я получил и записал в стор рпасписание всех вылетов/прилетов, рирендерю , когда обновляются данніе 
 
   return (
     <main className="main">
