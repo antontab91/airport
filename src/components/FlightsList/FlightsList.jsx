@@ -56,7 +56,7 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
                   <td>{flight.status}</td>
                   <td>{flight["airportToID.name_en"] || flight["airportFromID.name_en"]}</td>
                   <td className='flights-table__airline-logo'><img className='flights-table__airline-icon' src={flight.airline.en.logoSmallName} alt="airline-logo" />{flight.airline.en.name}</td>
-                  <td>5</td>
+                  <td>{flight["carrierID.IATA"] + flight.fltNo}</td>
                 </tr>
               )
             })}
