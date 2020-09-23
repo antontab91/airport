@@ -17,13 +17,10 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
 
   const needed = state === 'departures' ? departuresList : arrivalsList;
 
-
-
   // console.log(useLocation())
   // console.log(useHistory())
   // console.log(useParams())
 
-  arrivalsList.map((el) => { console.log(el.timeLandCalc) })
   return (
     <div className="flights-list">
 
