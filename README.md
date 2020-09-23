@@ -1,8 +1,14 @@
 To view build project open link: [Flights Board](https://.netlify.app).
 
-## Available Scripts
+
+
+# Available Scripts
 
 In the project directory, you can run:
+
+## Installing
+
+Run `npm install`
 
 ### `npm start`
 
@@ -29,5 +35,18 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+## The tech stack is:
++ HTML5
++ CSS3
++ Flexbox
++ Sass (Scss)
++ BEM methodology
++ JS ES6
++ ReactJS
++ React-router-dom
++ Redux
++ Redux-thunk
++ Moment.js
 
 

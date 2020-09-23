@@ -51,9 +51,9 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
               return (
                 <tr key={flight.ID}>
                   <td>{flight.term}</td>
-                  <td>{}</td>
-                  <td>3</td>
-                  <td>4</td>
+                  <td>{flight.timeDepShedule || flight.timeLandCalc}</td>
+                  <td>{flight.status}</td>
+                  {/* <td>{flight.destination}</td> */}
                   <td>5</td>
                   <td>6</td>
                 </tr>
@@ -78,16 +78,5 @@ const connectedFlightsList = connector(FlightsList);
 
 export default connectedFlightsList;
 
-// вылет 
-
-// прилет
-// timeArrExpectCalc: "2020-09-22T  04:30:00Z"     ожидаемое время когда самолет будет в терминале 
-// timeArrShedule: "2020-09-22T     04:30:00Z"     по графику когда самолет будет в терминале 
-// timeTakeofFact: "2020-09-22T     04:33:00Z"     когда прибыл в терминал фактически 
-
-// timeLandCalc: "2020-09-22T       05:55:00Z"     ожидаемое время отлета 
-// timeLandFact: "2020-09-22T       05:53:25Z"     фактическое время отлета 
-
-// timeStandCalc: "2020-09-22T      06:00:00Z"     приблизительное время прилета  
-// timeStandFact: "2020-09-22T      06:00:34Z"     фактическое время прилета  
-// timeToStand: "2020-09-22T        05:40:00Z"     время прилета 
+// timeDepShedule:    "2020-09-22T      09:00:00Z"     ожидаемое время отлета по графику  (то время что нужно)
+// timeLandCalc:      "2020-09-22T      05:55:00Z"     ожидаемое время отлета    
