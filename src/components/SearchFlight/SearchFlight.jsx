@@ -4,7 +4,7 @@ import { SearchOutlined } from '@material-ui/icons';
 import { searchFlight } from '../flights/flights.actions';
 
 
-const SearchFlight = () => {
+const SearchFlight = ({ searchFlight }) => {
 
   const [state, setstate] = useState('');
 

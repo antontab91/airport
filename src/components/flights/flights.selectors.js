@@ -18,6 +18,8 @@ export const arrivalsSelector = state => {
   if (!searchFlight) {
     return filteredArrivals;
   }
+
+
 }
 
 export const departuresSelector = state => {
