@@ -16,6 +16,7 @@ const SearchFlight = () => {
     e.preventDefault();
     if (state !== "") {
       searchFlight(state);
+      setstate('');
     }
     return null;
   }
