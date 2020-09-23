@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
 import { Link, Route, Switch, useLocation, useHistory, useParams, useRouteMatch } from 'react-router-dom';
 
@@ -51,11 +52,11 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
               return (
                 <tr key={flight.ID}>
                   <td>{flight.term}</td>
-                  <td>{flight.timeDepShedule || flight.timeLandCalc}</td>
+                  <td>{moment(flight.timeDepShedule).format("HH:mm") || moment(flight.timeLandCalc).format("HH:mm")}</td>
                   <td>{flight.status}</td>
-                  {/* <td>{flight.destination}</td> */}
+                  <td>{flight["airportToID.name_en"] || flight["airportFromID.name_en"]}</td>
                   <td>5</td>
-                  <td>6</td>
+                  <td>5</td>
                 </tr>
               )
             })}
