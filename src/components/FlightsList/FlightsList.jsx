@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
-import { Link, Route, Switch, useLocation, useHistory, useParams, useRouteMatch } from 'react-router-dom';
+import { Link, Route, Switch, useLocation, useHistory, useParams } from 'react-router-dom';
 
 const FlightsList = ({ arrivalsList, departuresList }) => {
   const [state, setstate] = useState('departures');
