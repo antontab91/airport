@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Link, Route, Switch, useLocation, useHistory, useParams } from 'react-router-dom';
 import moment from 'moment';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
-import FlightsTableHeader from '../FlightsTableHeader/FlightsTableHeader';
+
+import FlightsTableHeader from '../FlightsTableHeader/FlightsTableHeader.jsx';
 import *as flightsSelectors from '../flights/flights.selectors';
 
 
@@ -49,7 +50,7 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
           <FlightsTableHeader />
 
           <tbody>
-            {needed.slice().sort((a, b) => { return a.timeLandCalc - b.timeLandCalc }).map((flight) => {
+            {needed.map((flight) => {
               return (
                 <tr key={flight.ID}>
                   <td>{flight.term}</td>
@@ -74,13 +75,6 @@ const mapState = (state) => {
     departuresList: flightsSelectors.departuresSelector(state),
   }
 }
-
-// const mapState = (state) => {
-//   return {
-//     arrivalsList: state.flights.arrivals,
-//     departuresList: state.flights.departures,
-//   }
-// }
 
 const connector = connect(mapState, null);
 const connectedResultsBoard = connector(ResultsBoard);
