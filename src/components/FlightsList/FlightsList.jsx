@@ -78,6 +78,9 @@ const connectedFlightsList = connector(FlightsList);
 
 export default connectedFlightsList;
 
+// вылет 
+
+// прилет
 // timeArrExpectCalc: "2020-09-22T  04:30:00Z"     ожидаемое время когда самолет будет в терминале 
 // timeArrShedule: "2020-09-22T     04:30:00Z"     по графику когда самолет будет в терминале 
 // timeTakeofFact: "2020-09-22T     04:33:00Z"     когда прибыл в терминал фактически 
