@@ -179,6 +179,17 @@ main{
   &__header tr th:first-child {
     text-align: center;
   }
+
+  &__airline-logo{
+    display: flex;
+    align-items: center;
+  }
+
+  &__airline-icon{
+    height: 40px;
+    display: block;
+    padding-right: 10px;
+  }
 }
 
 td {

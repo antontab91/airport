@@ -55,7 +55,7 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
                   <td>{moment(flight.timeDepShedule).format("HH:mm") || moment(flight.timeLandCalc).format("HH:mm")}</td>
                   <td>{flight.status}</td>
                   <td>{flight["airportToID.name_en"] || flight["airportFromID.name_en"]}</td>
-                  <td>5</td>
+                  <td className='flights-table__airline-logo'><img className='flights-table__airline-icon' src={flight.airline.en.logoSmallName} alt="airline-logo" />{flight.airline.en.name}</td>
                   <td>5</td>
                 </tr>
               )
