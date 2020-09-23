@@ -1,7 +1,13 @@
-const arrivalsSelector = state => {
-  return
+export const arrivalsSelector = state => {
+  const { arrivals, searchFlight } = state.flights;
+  if (!searchFlight) {
+    return arrivals;
+  }
 }
 
-const departuresSelector = state => {
-
+export const departuresSelector = state => {
+  const { departures, searchFlight } = state.flights;
+  if (!searchFlight) {
+    return departures;
+  }
 }

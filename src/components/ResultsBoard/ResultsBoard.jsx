@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link, Route, Switch, useLocation, useHistory, useParams } from 'react-router-dom';
 import moment from 'moment';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
-import { Link, Route, Switch, useLocation, useHistory, useParams } from 'react-router-dom';
+import *as flightsSelectors from '../flights/flights.selectors';
 
-const FlightsList = ({ arrivalsList, departuresList }) => {
+const ResultsBoard = ({ arrivalsList, departuresList }) => {
   const [state, setstate] = useState('departures');
 
   const toggle = () => {
@@ -12,14 +13,12 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
   }
 
   const needed = state === 'departures' ? departuresList : arrivalsList;
-  // const activeClass = 
 
 
-  console.log(useLocation())
-  console.log(useHistory())
-  console.log(useParams())
 
-
+  // console.log(useLocation())
+  // console.log(useHistory())
+  // console.log(useParams())
 
   // console.log(arrivalsList, departuresList)
   return (
@@ -78,13 +77,13 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
 
 const mapState = (state) => {
   return {
-    arrivalsList: state.flights.arrivals,
-    departuresList: state.flights.departures,
+    arrivalsList: flightsSelectors.arrivalsSelector(state),
+    departuresList: flightsSelectors.departuresSelector(state),
   }
 }
 
 const connector = connect(mapState, null);
-const connectedFlightsList = connector(FlightsList);
+const connectedResultsBoard = connector(ResultsBoard);
 
-export default connectedFlightsList;
+export default connectedResultsBoard;
 
