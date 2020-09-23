@@ -11,6 +11,7 @@ const flightsListsReceived = (flightsLists) => {
 }
 
 export const searchFlight = (searchData) => {
+  console.log('adsdassad')
   return {
     type: SEARCH_FLIGHTS,
     payload: searchData,
