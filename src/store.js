@@ -3,7 +3,7 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import { flightsReducer } from './components/flights/flights.reducer'
 
 const reducer = combineReducers({
-  tasks: flightsReducer,
+  flights: flightsReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

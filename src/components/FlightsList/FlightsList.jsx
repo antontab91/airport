@@ -12,9 +12,13 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
   }
 
   const needed = state === 'departures' ? departuresList : arrivalsList;
+  // const activeClass = 
 
 
   console.log(useLocation())
+  console.log(useHistory())
+  console.log(useParams())
+
 
 
   // console.log(arrivalsList, departuresList)
@@ -22,12 +26,18 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
     <div className="flights-list">
 
       <div className="flights-list__tabs">
-        <Link to='/departures' onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_departures ${state === 'departures' ? "active" : ""} `}>
+        <Link to='/departures'
+          onClick={toggle}
+          className={`flights-list__tab-btn flights-list__tab-btn_departures ${state === 'departures' ? "active" : ""} `}
+        >
           <FlightTakeoff className="flights-list__icon" />
           <span>Departures вылет </span>
         </Link>
 
-        <Link to='/arrivals' onClick={toggle} className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state === 'arrivals' ? "active" : ""} `}>
+        <Link to='/arrivals'
+          onClick={toggle}
+          className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state === 'arrivals' ? "active" : ""} `}
+        >
           <FlightLand className="flights-list__icon" />
           <span>Arrivals прилет</span>
         </Link>
@@ -68,8 +78,8 @@ const FlightsList = ({ arrivalsList, departuresList }) => {
 
 const mapState = (state) => {
   return {
-    arrivalsList: state.tasks.arrivals,
-    departuresList: state.tasks.departures,
+    arrivalsList: state.flights.arrivals,
+    departuresList: state.flights.departures,
   }
 }
 
@@ -78,5 +88,3 @@ const connectedFlightsList = connector(FlightsList);
 
 export default connectedFlightsList;
 
-// timeDepShedule:    "2020-09-22T      09:00:00Z"     ожидаемое время отлета по графику  (то время что нужно)
-// timeLandCalc:      "2020-09-22T      05:55:00Z"     ожидаемое время отлета    
