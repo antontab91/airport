@@ -8,10 +8,12 @@ const formatDate = (date) => {
 export const arrivalsSelector = state => {
   const { arrivals, searchFlight } = state.flights;
   const filteredArrivals = arrivals
-    .slice()
-    .filter((el) => {
-      return formatDate(el.timeLandCalc) === today;
-    })
+    ? arrivals
+      .slice()
+      .filter((el) => {
+        return formatDate(el.timeLandCalc) === today;
+      })
+    : [];
 
   if (!searchFlight) {
     return filteredArrivals;
@@ -21,10 +23,12 @@ export const arrivalsSelector = state => {
 export const departuresSelector = state => {
   const { departures, searchFlight } = state.flights;
   const filteredDepartures = departures
-    .slice()
-    .filter((el) => {
-      return formatDate(el.timeDepShedule) === today
-    })
+    ? departures
+      .slice()
+      .filter((el) => {
+        return formatDate(el.timeDepShedule) === today
+      })
+    : [];
 
   if (!searchFlight) {
     return filteredDepartures;
