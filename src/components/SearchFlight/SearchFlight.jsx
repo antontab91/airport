@@ -9,8 +9,15 @@ const SearchFlight = () => {
   const [state, setstate] = useState('');
 
   const searchInputhandler = (e) => {
-    console.log(e.target.value)
     setstate(e.target.value)
+  }
+
+  const onSearchFlight = (e) => {
+    e.preventDefault();
+    if (state !== "") {
+      searchFlight(state);
+    }
+    return null;
   }
 
   return (
