@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { SearchOutlined } from '@material-ui/icons';
+import { searchFlight } from '../flights/flights.actions';
 
 
 const SearchFlight = () => {
+
+  const [state, setstate] = useState('');
+
+  const searchInputhandler = (e) => {
+    console.log(e.target.value)
+    setstate(e.target.value)
+  }
+
   return (
     <div className="search-flight">
       <h2 className="search-flight__title">
@@ -22,6 +32,8 @@ const SearchFlight = () => {
           type="text"
           className="search-flight__input"
           placeholder="Airline, destination or flight #"
+          value={state}
+          onChange={searchInputhandler}
         />
         <button className="search-flight__btn" type="submit">
           SEARCH
@@ -31,4 +43,11 @@ const SearchFlight = () => {
   )
 }
 
-export default SearchFlight;
+const mapDisptch = {
+  searchFlight,
+}
+
+const connector = connect(null, mapDisptch);
+const connectedSearchFlight = connector(SearchFlight);
+
+export default connectedSearchFlight;
