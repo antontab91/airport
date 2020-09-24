@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import FlightsTableHeader from '../FlightsTableHeader/FlightsTableHeader.jsx';
 import FlightsTabs from '../FlightsTabs/FlightsTabs.jsx'
 import FlightData from '../FlightData/FlightData.jsx';
@@ -19,7 +19,7 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
     } else {
       setStatus("departures");
     }
-  }, [location]);
+  }, [location, arrivalsList, departuresList]);
 
   return (
     <div className="flights-list">

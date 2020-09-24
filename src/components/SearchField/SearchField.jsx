@@ -24,6 +24,8 @@ const SearchField = ({ searchFlight }) => {
     }
   };
 
+  console.log((location.pathname));
+
   return (
     <div className="search-flight">
       <h2 className="search-flight__title">
