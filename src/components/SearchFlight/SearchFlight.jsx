@@ -8,7 +8,7 @@ const SearchFlight = ({ searchFlight }) => {
 
   const [state, setstate] = useState('');
 
-  const searchInputhandler = (e) => {
+  const searchInputHandler = (e) => {
     setstate(e.target.value)
   }
 
@@ -41,7 +41,7 @@ const SearchFlight = ({ searchFlight }) => {
           className="search-flight__input"
           placeholder="Airline, destination or flight #"
           value={state}
-          onChange={searchInputhandler}
+          onChange={searchInputHandler}
         />
         <button className="search-flight__btn" type="submit">
           SEARCH
