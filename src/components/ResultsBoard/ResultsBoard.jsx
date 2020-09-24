@@ -9,12 +9,14 @@ import *as flightsSelectors from '../flights/flights.selectors';
 
 
 const ResultsBoard = ({ arrivalsList, departuresList }) => {
-  const [state, setstate] = useState('arrivals');
+  const [state, setState] = useState('arrivals');
 
   const toggle = () => {
-    setstate(state === 'departures' ? 'arrivals' : 'departures');
+    setState(state === 'departures' ? 'arrivals' : 'departures');
   }
 
+  const departuresClass = state === "departures" ? "active" : "";
+  const arrivalsClass = state === "arrivals" ? "active" : "";
   const needed = state === 'departures' ? departuresList : arrivalsList;
 
   // console.log(useLocation())
@@ -27,18 +29,18 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
       <div className="flights-list__tabs">
         <Link to='/departures'
           onClick={toggle}
-          className={`flights-list__tab-btn flights-list__tab-btn_departures ${state === 'departures' ? "active" : ""} `}
+          className={`flights-list__tab-btn flights-list__tab-btn_departures ${departuresClass} `}
         >
           <FlightTakeoff className="flights-list__icon" />
-          <span>Departures вылет </span>
+          <span>Departures</span>
         </Link>
 
         <Link to='/arrivals'
           onClick={toggle}
-          className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${state === 'arrivals' ? "active" : ""} `}
+          className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${arrivalsClass} `}
         >
           <FlightLand className="flights-list__icon" />
-          <span>Arrivals прилет</span>
+          <span>Arrivals</span>
         </Link>
       </div>
 
@@ -54,7 +56,12 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
                   <td>{flight.flightTime}</td>
                   <td>{flight.destination}</td>
                   <td>{flight.status}</td>
-                  <td className='flights-table__airline-logo'><img className='flights-table__airline-icon' src={flight.airlineLogo} alt="airline-logo" />{flight.airlineName}</td>
+                  <td className='flights-table__airline-logo'>
+                    <img className='flights-table__airline-icon'
+                      src={flight.airlineLogo}
+                      alt="airline-logo" />
+                    {flight.airlineName}
+                  </td>
                   <td>{flight.flightNumber}</td>
                 </tr>
               )
