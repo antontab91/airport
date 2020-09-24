@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import SearchFlight from './SearchFlight/SearchFlight.jsx';
+import SearchFlight from './SearchField/SearchField.jsx';
 import ResultsBoard from './ResultsBoard/ResultsBoard.jsx';
 import { getFlightsLists } from './flights/flights.actions';
 

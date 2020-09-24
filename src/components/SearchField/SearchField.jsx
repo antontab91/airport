@@ -4,8 +4,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { SearchOutlined } from '@material-ui/icons';
 import { searchFlight } from '../flights/flights.actions';
 
-
-const SearchFlight = ({ searchFlight, }) => {
+const SearchField = ({ searchFlight }) => {
 
   const [value, setValue] = useState("");
   const history = useHistory();
@@ -14,15 +13,6 @@ const SearchFlight = ({ searchFlight, }) => {
   const handleChange = (e) => {
     setValue(e.target.value)
   }
-
-  // const onSearchFlight = (e) => {
-  //   e.preventDefault();
-  //   if (value !== "") {
-  //     searchFlight(value);
-  //     setValue('');
-  //   }
-  //   return null;
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,6 +58,6 @@ const mapDispatch = {
 }
 
 const connector = connect(null, mapDispatch);
-const connectedSearchFlight = connector(SearchFlight);
+const connectedSearchField = connector(SearchField);
 
-export default connectedSearchFlight;
+export default connectedSearchField;
