@@ -43,7 +43,7 @@ export const getFlightsLists = () => {
               status: flight.status,
               airlineLogo: flight.airline.en.logoSmallName,
               airlineName: flight.airline.en.name,
-              flight: flight['carrierID.IATA'] + flight.fltNo,
+              flightNumber: flight['carrierID.IATA'] + flight.fltNo,
             }
           })
 
@@ -63,7 +63,7 @@ export const getFlightsLists = () => {
               status: flight.status,
               airlineLogo: flight.airline.en.logoSmallName,
               airlineName: flight.airline.en.name,
-              flight: flight['carrierID.IATA'] + flight.fltNo,
+              flightNumber: flight['carrierID.IATA'] + flight.fltNo,
             }
           })
 
