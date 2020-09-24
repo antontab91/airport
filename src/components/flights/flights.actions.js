@@ -26,14 +26,14 @@ export const getFlightsLists = () => {
         const { departure, arrival } = flightsLists.body;
 
         const sortedDepartures = departure
-          .slice()                                                                                         //скопировал
+          .slice()                                                                                         //скопировал исходник
           .filter((flight) => {                                                                            //фильтранул те что сегодня
             return moment(flight.timeDepShedule).format('DD-MM-YYYY') === moment().format('DD-MM-YYYY');
           })
           .sort((a, b) => {                                                                                //сортанул по дате вылета 
             return moment(a.timeDepShedule).valueOf - moment(b.timeDepShedule).valueOf
           })
-          .map((flight) => {                                                                               //перезаписал для удобства нужные значения каждого вылета
+          .map((flight) => {                                                                               //перезаписал для удобства нужные значения по каждому вылету
             return {
               id: flight.ID,
               term: flight.term,
