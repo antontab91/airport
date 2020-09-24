@@ -12,7 +12,7 @@ export const flightsReducer = (state = initialState, action) => {
 
 
     case FLIGHTS_LISTS_RECEIVED: {
-      const { departure, arrival } = action.payload.body;
+      const { departure, arrival } = action.payload;
       return {
         ...state,
         departures: departure,
