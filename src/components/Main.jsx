@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import SearchField from './SearchField/SearchField.jsx';
 import ResultsBoard from './ResultsBoard/ResultsBoard.jsx';
 import { getFlightsLists } from './flights/flights.actions';
@@ -15,8 +15,11 @@ const AirportBoard = ({ getFlightsLists }) => {
     <main className="main">
       <SearchField />
       <Switch>
+        <Route exact path="/">
+          <Redirect to="/departure"></Redirect>
+        </Route>
         <Route>
-          <ResultsBoard exact path='/departures' />
+          <ResultsBoard path='/:direction/:searchFlight?' />
         </Route>
       </Switch>
     </main>
