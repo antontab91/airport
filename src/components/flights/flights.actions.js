@@ -71,7 +71,6 @@ export const getFlightsLists = () => {
           arrival: sortedArrival
         }
 
-        console.log(sortedFlightsLists);
         dispatch(flightsListsReceived(sortedFlightsLists));
       })
   }
