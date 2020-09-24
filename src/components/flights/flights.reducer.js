@@ -9,8 +9,6 @@ const initialState = {
 export const flightsReducer = (state = initialState, action) => {
   switch (action.type) {
 
-
-
     case FLIGHTS_LISTS_RECEIVED: {
       const { departure, arrival } = action.payload;
       return {
