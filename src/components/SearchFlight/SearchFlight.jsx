@@ -5,7 +5,7 @@ import { SearchOutlined } from '@material-ui/icons';
 import { searchFlight } from '../flights/flights.actions';
 
 
-const SearchFlight = ({ searchFlight, text }) => {
+const SearchFlight = ({ searchFlight, setSearch, text }) => {
 
   const [value, setValue] = useState("");
   const history = useHistory();
@@ -15,9 +15,23 @@ const SearchFlight = ({ searchFlight, text }) => {
     setValue(e.target.value)
   }
 
+  // const onSearchFlight = (e) => {
+  //   e.preventDefault();
+  //   if (value !== "") {
+  //     searchFlight(value);
+  //     setValue('');
+  //   }
+  //   return null;
+  // }
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (text === value) return;
     searchFlight(value);
+    if (value) {
+      history.push(`${value}`);
+      return;
+    }
     if (value) {
       history.push(`${location.pathname}/${value}`);
     } else {
@@ -30,9 +44,7 @@ const SearchFlight = ({ searchFlight, text }) => {
       <h2 className="search-flight__title">
         Search flight
       </h2>
-      <form
-        onSubmit={handleSubmit}
-        className="search-flight__form">
+      <form onSubmit={handleSubmit} className="search-flight__form">
         <label
           className="search-flight__label"
           htmlFor="search-flight__input"
@@ -48,9 +60,7 @@ const SearchFlight = ({ searchFlight, text }) => {
           onChange={handleChange}
           placeholder="Airline, destination or flight #"
         />
-        <button
-          className="search-flight__btn"
-          type="submit">
+        <button className="search-flight__btn" type="submit">
           SEARCH
         </button>
       </form>
