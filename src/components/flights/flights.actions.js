@@ -1,4 +1,3 @@
-import { Today } from '@material-ui/icons';
 import moment from 'moment';
 import { fetchFlightsList } from './flights.gateways';
 
@@ -66,7 +65,6 @@ export const getFlightsLists = () => {
               flightNumber: flight['carrierID.IATA'] + flight.fltNo,
             }
           })
-
 
         const sortedFlightsLists = {
           departure: sortedDepartures,
