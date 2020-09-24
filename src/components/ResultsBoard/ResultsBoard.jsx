@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, Route, Switch, useLocation, useHistory, useParams } from 'react-router-dom';
-import moment from 'moment';
+import { Link, useLocation, useHistory, useParams } from 'react-router-dom';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
 
 import FlightsTableHeader from '../FlightsTableHeader/FlightsTableHeader.jsx';
@@ -9,34 +8,37 @@ import *as flightsSelectors from '../flights/flights.selectors';
 
 
 const ResultsBoard = ({ arrivalsList, departuresList }) => {
-  const [state, setState] = useState('arrivals');
+  const [status, setStatus] = useState('departures');
+  const location = useLocation();
+  const departuresClass = status === "departures" ? "active" : "";
+  const arrivalsClass = status === "arrivals" ? "active" : "";
+  const flights = status === 'departures' ? departuresList : arrivalsList;
 
-  const toggle = () => {
-    setState(state === 'departures' ? 'arrivals' : 'departures');
-  }
+  useEffect(() => {
+    if (location.pathname.includes("arrivals")) {
+      setStatus("arrivals");
+    } else {
+      setStatus("departures");
+    }
+  }, [location]);
 
-  const departuresClass = state === "departures" ? "active" : "";
-  const arrivalsClass = state === "arrivals" ? "active" : "";
-  const needed = state === 'departures' ? departuresList : arrivalsList;
-
-  // console.log(useLocation())
-  // console.log(useHistory())
-  // console.log(useParams())
+  console.log(useHistory())
+  console.log(useLocation())
 
   return (
     <div className="flights-list">
 
       <div className="flights-list__tabs">
-        <Link to='/departures'
-          onClick={toggle}
+        <Link
+          to={`/departures`}
           className={`flights-list__tab-btn flights-list__tab-btn_departures ${departuresClass} `}
         >
           <FlightTakeoff className="flights-list__icon" />
           <span>Departures</span>
         </Link>
 
-        <Link to='/arrivals'
-          onClick={toggle}
+        <Link
+          to={`/arrivals`}
           className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${arrivalsClass} `}
         >
           <FlightLand className="flights-list__icon" />
@@ -46,10 +48,11 @@ const ResultsBoard = ({ arrivalsList, departuresList }) => {
 
       <div className="flights-list__table-wrapper">
         <table className="flights-list__table flights-table">
+
           <FlightsTableHeader />
 
           <tbody>
-            {needed.map((flight) => {
+            {flights.map((flight) => {
               return (
                 <tr key={flight.id}>
                   <td>{flight.term}</td>

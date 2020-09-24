@@ -4,12 +4,12 @@ import SearchFlight from './SearchFlight/SearchFlight.jsx';
 import ResultsBoard from './ResultsBoard/ResultsBoard.jsx';
 import { getFlightsLists } from './flights/flights.actions';
 
-
 const AirportBoard = ({ getFlightsLists }) => {
+
 
   useEffect(() => {
     getFlightsLists()
-  }, [getFlightsLists]);        //тут я получил и записал в стор рпасписание всех вылетов/прилетов, рирендерю , когда обновляются данніе 
+  }, [getFlightsLists]);
 
   return (
     <main className="main">

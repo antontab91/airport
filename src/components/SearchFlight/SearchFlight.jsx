@@ -1,32 +1,38 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { useHistory, useLocation } from "react-router-dom";
 import { SearchOutlined } from '@material-ui/icons';
 import { searchFlight } from '../flights/flights.actions';
 
 
-const SearchFlight = ({ searchFlight }) => {
+const SearchFlight = ({ searchFlight, text }) => {
 
-  const [state, setstate] = useState('');
+  const [value, setValue] = useState("");
+  const history = useHistory();
+  const location = useLocation();
 
-  const searchInputHandler = (e) => {
-    setstate(e.target.value)
+  const handleChange = (e) => {
+    setValue(e.target.value)
   }
 
-  const onSearchFlight = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (state !== "") {
-      searchFlight(state);
-      setstate('');
+    searchFlight(value);
+    if (value) {
+      history.push(`${location.pathname}/${value}`);
+    } else {
+      history.push(``);
     }
-    return null;
-  }
+  };
 
   return (
     <div className="search-flight">
       <h2 className="search-flight__title">
         Search flight
       </h2>
-      <form onSubmit={(e) => { onSearchFlight(e) }} className="search-flight__form">
+      <form
+        onSubmit={handleSubmit}
+        className="search-flight__form">
         <label
           className="search-flight__label"
           htmlFor="search-flight__input"
@@ -36,14 +42,15 @@ const SearchFlight = ({ searchFlight }) => {
           />
         </label>
         <input
-          id="search-flight__input"
-          type="text"
           className="search-flight__input"
+          type="text"
+          value={value}
+          onChange={handleChange}
           placeholder="Airline, destination or flight #"
-          value={state}
-          onChange={searchInputHandler}
         />
-        <button className="search-flight__btn" type="submit">
+        <button
+          className="search-flight__btn"
+          type="submit">
           SEARCH
         </button>
       </form>
