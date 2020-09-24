@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import SearchField from './SearchField/SearchField.jsx';
 import ResultsBoard from './ResultsBoard/ResultsBoard.jsx';
 import { getFlightsLists } from './flights/flights.actions';
@@ -33,4 +34,7 @@ const mapDispatch = {
 const connector = connect(null, mapDispatch)
 const connectedAirportBoard = connector(AirportBoard);
 
+AirportBoard.propTypes = {
+  getFlightsLists: PropTypes.func.isRequired,
+}
 export default connectedAirportBoard;

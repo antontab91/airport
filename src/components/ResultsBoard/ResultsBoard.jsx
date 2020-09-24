@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import PropTypes from "prop-types";
 import FlightsTableHeader from '../FlightsTableHeader/FlightsTableHeader.jsx';
 import FlightsTabs from '../FlightsTabs/FlightsTabs.jsx'
 import FlightData from '../FlightData/FlightData.jsx';
@@ -52,6 +53,11 @@ const mapState = (state) => {
 
 const connector = connect(mapState, null);
 const connectedResultsBoard = connector(ResultsBoard);
+
+ResultsBoard.propTypes = {
+  departuresList: PropTypes.array.isRequired,
+  arrivalsList: PropTypes.array.isRequired,
+}
 
 export default connectedResultsBoard;
 

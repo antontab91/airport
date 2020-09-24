@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const FlightData = ({ term, flightTime, destination, status, airlineLogo, airlineName, flightNumber }) => {
   return (
@@ -15,8 +16,17 @@ const FlightData = ({ term, flightTime, destination, status, airlineLogo, airlin
       </td>
       <td>{flightNumber}</td>
     </tr>
-
   )
+}
+
+FlightData.propTypes = {
+  term: PropTypes.string.isRequired,
+  flightTime: PropTypes.string.isRequired,
+  destination: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  airlineLogo: PropTypes.string.isRequired,
+  airlineName: PropTypes.string.isRequired,
+  flightNumber: PropTypes.string.isRequired,
 }
 
 export default FlightData;

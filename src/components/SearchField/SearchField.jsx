@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 import { SearchOutlined } from '@material-ui/icons';
 import { searchFlight } from '../flights/flights.actions';
 
@@ -23,8 +24,6 @@ const SearchField = ({ searchFlight }) => {
       history.push(``);
     }
   };
-
-  console.log((location.pathname));
 
   return (
     <div className="search-flight">
@@ -62,4 +61,9 @@ const mapDispatch = {
 const connector = connect(null, mapDispatch);
 const connectedSearchField = connector(SearchField);
 
+SearchField.propTypes = {
+  searchFlight: PropTypes.func.isRequired,
+};
+
 export default connectedSearchField;
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import { FlightTakeoff, FlightLand } from '@material-ui/icons';
 
@@ -21,6 +22,11 @@ const FlightsTabs = ({ departuresClass, arrivalsClass }) => {
       </Link>
     </div>
   )
+}
+
+FlightsTabs.propTypes = {
+  departuresClass: PropTypes.string.isRequired,
+  arrivalsClass: PropTypes.string.isRequired,
 }
 
 export default FlightsTabs;
