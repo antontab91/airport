@@ -5,7 +5,7 @@ import { SearchOutlined } from '@material-ui/icons';
 import { searchFlight } from '../flights/flights.actions';
 
 
-const SearchFlight = ({ searchFlight, setSearch, text }) => {
+const SearchFlight = ({ searchFlight, }) => {
 
   const [value, setValue] = useState("");
   const history = useHistory();
@@ -26,12 +26,7 @@ const SearchFlight = ({ searchFlight, setSearch, text }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text === value) return;
     searchFlight(value);
-    if (value) {
-      history.push(`${value}`);
-      return;
-    }
     if (value) {
       history.push(`${location.pathname}/${value}`);
     } else {
