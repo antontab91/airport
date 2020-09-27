@@ -1,32 +1,37 @@
-import React from 'react';
-import PropTypes from "prop-types";
-import { Link } from 'react-router-dom';
-import { FlightTakeoff, FlightLand } from '@material-ui/icons';
+import React from "react";
+import classnames from "classnames";
+import { Link, useLocation } from "react-router-dom";
+import { FlightTakeoff, FlightLand } from "@material-ui/icons";
 
-const FlightsTabs = ({ departuresClass, arrivalsClass }) => {
+import { ROUTES } from "../../constants";
+
+const FlightsTabs = () => {
+  const { pathname, search } = useLocation();
+
   return (
     <div className="flights-list__tabs">
       <Link
-        to={`/departures`}
-        className={`flights-list__tab-btn flights-list__tab-btn_departures ${departuresClass} `}
+        to={`${ROUTES.DEPARTURE}${search}`}
+        className={classnames(
+          "flights-list__tab-btn flights-list__tab-btn_departures",
+          { active: pathname === ROUTES.DEPARTURE }
+        )}
       >
         <FlightTakeoff className="flights-list__icon" />
         <span>Departures</span>
       </Link>
       <Link
-        to={`/arrivals`}
-        className={`flights-list__tab-btn flights-list__tab-btn_arrivals ${arrivalsClass} `}
+        to={`${ROUTES.ARRIVAL}${search}`}
+        className={classnames(
+          `flights-list__tab-btn flights-list__tab-btn_arrivals`,
+          { active: pathname === ROUTES.ARRIVAL }
+        )}
       >
         <FlightLand className="flights-list__icon" />
         <span>Arrivals</span>
       </Link>
     </div>
-  )
-}
-
-FlightsTabs.propTypes = {
-  departuresClass: PropTypes.string.isRequired,
-  arrivalsClass: PropTypes.string.isRequired,
-}
+  );
+};
 
 export default FlightsTabs;

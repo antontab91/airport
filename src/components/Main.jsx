@@ -1,40 +1,20 @@
-import { connect } from 'react-redux';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { ROUTES } from "../constants";
 import SearchField from './SearchField/SearchField.jsx';
 import ResultsBoard from './ResultsBoard/ResultsBoard.jsx';
-import { getFlightsLists } from './flights/flights.actions';
 
-const AirportBoard = ({ getFlightsLists }) => {
-
-  useEffect(() => {
-    getFlightsLists()
-  }, [getFlightsLists]);
-
+const AirportBoard = () => {
   return (
     <main className="main">
       <SearchField />
       <Switch>
-        <Route exact path="/">
-          <Redirect to="/departure"></Redirect>
-        </Route>
-        <Route>
-          <ResultsBoard path='/:direction/:searchFlight?' />
-        </Route>
+        <Route exact path={ROUTES.DEPARTURE} component={ResultsBoard} />
+        <Route exact path={ROUTES.ARRIVAL} component={ResultsBoard} />
+        <Redirect to={ROUTES.DEPARTURE}></Redirect>
       </Switch>
     </main>
-  )
+  );
 }
 
-const mapDispatch = {
-  getFlightsLists,
-}
-
-const connector = connect(null, mapDispatch)
-const connectedAirportBoard = connector(AirportBoard);
-
-AirportBoard.propTypes = {
-  getFlightsLists: PropTypes.func.isRequired,
-}
-export default connectedAirportBoard;
+export default AirportBoard;

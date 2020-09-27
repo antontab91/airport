@@ -1,48 +1,41 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { useHistory, useLocation } from "react-router-dom";
-import PropTypes from "prop-types";
-import { SearchOutlined } from '@material-ui/icons';
-import { searchFlight } from '../flights/flights.actions';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { SearchOutlined } from "@material-ui/icons";
 
-const SearchField = ({ searchFlight }) => {
+import { searchFlight } from "../flights/flights.actions";
+import { stringify } from "../../utils";
 
-  const [value, setValue] = useState("");
+const SearchField = () => {
+  const dispatch = useDispatch(); // "useDispatch" аналог mapDispatch, заменяе connect в хуках
+  const [searchValue, setSearchValue] = useState("");
   const history = useHistory();
-  const location = useLocation();
 
   const handleChange = (e) => {
-    setValue(e.target.value)
-  }
+    setSearchValue(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchFlight(value);
-    if (value) {
-      history.push(`${location.pathname}/${value}`);
-    } else {
-      history.push(``);
-    }
+    dispatch(searchFlight(searchValue));
+
+    history.replace({
+      ...history.location,
+      search: stringify({ search: searchValue }),
+    });
   };
 
   return (
     <div className="search-flight">
-      <h2 className="search-flight__title">
-        Search flight
-      </h2>
+      <h2 className="search-flight__title">Search flight</h2>
       <form onSubmit={handleSubmit} className="search-flight__form">
-        <label
-          className="search-flight__label"
-          htmlFor="search-flight__input"
-        >
-          <SearchOutlined
-            className="search-flight__icon"
-          />
+        <label className="search-flight__label" htmlFor="search-flight__input">
+          <SearchOutlined className="search-flight__icon" />
         </label>
         <input
           className="search-flight__input"
           type="text"
-          value={value}
+          value={searchValue}
           onChange={handleChange}
           placeholder="Airline, destination or flight #"
         />
@@ -51,19 +44,7 @@ const SearchField = ({ searchFlight }) => {
         </button>
       </form>
     </div>
-  )
-}
-
-const mapDispatch = {
-  searchFlight,
-}
-
-const connector = connect(null, mapDispatch);
-const connectedSearchField = connector(SearchField);
-
-SearchField.propTypes = {
-  searchFlight: PropTypes.func.isRequired,
+  );
 };
 
-export default connectedSearchField;
-
+export default SearchField;
